@@ -1,7 +1,10 @@
 package it.polito.tdp.spellchecker;
 
 import javafx.application.Application;
+
 import static javafx.application.Application.launch;
+
+import it.polito.tdp.spellchecker.model.Dictionary;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,7 +15,15 @@ public class EntryPoint extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+    	
+    	Dictionary dizionario=new Dictionary();
+    	FXMLController controller;
+    	
+    	//ci recuperiamo un riferimento al controller e lo facciamo tramite il loader che va a vedere
+    	//qual'è il controller associato al file FXML
+    	FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Scene.fxml"));
+    	
+        Parent root = loader.load();
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
