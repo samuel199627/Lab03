@@ -16,6 +16,8 @@ public class EntryPoint extends Application {
     @Override
     public void start(Stage stage) throws Exception {
     	
+    	//qui il dizionario viene creato e poi il contenuto lo carichiamo nel
+    	//controller in base alla lingua selezionata
     	Dictionary dizionario=new Dictionary();
     	FXMLController controller;
     	
@@ -27,6 +29,9 @@ public class EntryPoint extends Application {
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
+        
+        controller=loader.getController();
+        controller.setModel(dizionario);
         
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
