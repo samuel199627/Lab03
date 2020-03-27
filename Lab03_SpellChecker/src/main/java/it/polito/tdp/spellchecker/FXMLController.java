@@ -56,6 +56,8 @@ public class FXMLController {
 
     	inputText.clear();
     	outputText.clear();
+    	errorLabel.setText("");
+    	outputLabel.setText("");
     }
 
     @FXML
@@ -85,7 +87,8 @@ public class FXMLController {
     		System.out.println("parola "+(i+1)+" ->"+input.get(i));
     	}
     	*/
-    	List<RichWord> output=this.dictionary.speelCheckText(input);
+    	//List<RichWord> output=this.dictionary.speelCheckTextLinear(input);
+    	List<RichWord> output=this.dictionary.speelCheckTextDichotomic(input);
     	outputText.clear();
     	int errors=0;
     	for(RichWord out: output) {
